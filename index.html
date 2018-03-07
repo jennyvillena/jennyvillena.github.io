@@ -581,6 +581,25 @@
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
 
+    <script>
+    var $contactForm = $('#contactForm');
+    $contactForm.submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: 'https://formspree.io/lynv.designs@gmail.com',
+        method: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(data) {
+          alert('Success: Message was sent to lynv.designs@gmail.com')
+        },
+        error: function(err) {
+          alert('Error: Could not send message to lynv.designs@gmail.com')
+        }
+      });
+    });
+    </script>
+
   </body>
 
 </html>
